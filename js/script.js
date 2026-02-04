@@ -110,21 +110,38 @@ document.addEventListener("DOMContentLoaded", () => {
     // CONFETTI
     // ==========================
 
-    function launchConfetti() {
-        for (let i = 0; i < 80; i++) {
-            const confetti = document.createElement("div");
-            confetti.innerHTML = "🎊🎉";
-            confetti.style.position = "fixed";
-            confetti.style.left = Math.random() * 100 + "vw";
-            confetti.style.top = "-20px";
-            confetti.style.fontSize = 15 + Math.random() * 20 + "px";
-            confetti.style.animation = "confettiFall 3s linear forwards";
-            confetti.style.zIndex = 999;
+function launchConfetti() {
 
-            document.body.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 3000);
-        }
+    const colors = ["#ff4d6d", "#ff758c", "#ffd6e0", "#ffb3c6", "#ffffff"];
+
+    for (let i = 0; i < 120; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.style.position = "fixed";
+        confetti.style.width = "8px";
+        confetti.style.height = "14px";
+        confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        confetti.style.top = "-20px";
+        confetti.style.left = Math.random() * 100 + "vw";
+
+        confetti.style.opacity = Math.random();
+
+        confetti.style.transform =
+            `rotate(${Math.random() * 360}deg)`;
+
+        confetti.style.animation =
+            `confettiFall ${2 + Math.random() * 2}s linear forwards`;
+
+        confetti.style.zIndex = 999;
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 4000);
     }
+}
 
     // ==========================
     // FLOATING HEARTS
