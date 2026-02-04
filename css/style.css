@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+    position: relative;
+}
+
+.character-section {
+    margin-bottom: 40px;
+}
+
+.character {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: float 2s ease-in-out infinite;
+}
+
+.dialogue {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    font-size: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.yes-btn {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+.no-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Floating teddy animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ========================= */
+/* HEARTBEAT ANIMATIONS */
+/* ========================= */
+
+@keyframes heartbeatBackground {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.02); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+body.heartbeat {
+    animation: heartbeatBackground 1s infinite;
+}
+
+@keyframes heartbeatBubble {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.05); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.dialogue.heartbeat {
+    animation: heartbeatBubble 0.8s infinite;
+}
+
+/* Dramatic background change */
+body.intense {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+}
+
+/* ========================= */
+/* SCREEN SYSTEM */
+/* ========================= */
+
+.screen {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    width: 100%;
+    /* min-height: 100vh; */
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: all;
+    position: relative;
+}
+
+.valentine-question {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.final-message {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+/* ========================= */
+/* FLOATING HEARTS */
+/* ========================= */
+
+.hearts-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+/* ========================= */
+/* LETTER MODAL */
+/* ========================= */
+
+.letter-modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 1000;
+}
+
+.letter-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.letter-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    text-align: center;
+    animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ========================= */
+/* MUSIC TOGGLE BUTTON */
+/* ========================= */
+
+.music-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 2000;
+    transition: all 0.3s ease;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* ========================= */
+/* ROMANTIC PHOTO */
+/* ========================= */
+
+.photo-container {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.romantic-photo {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #ff4d6d;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: photoPop 1s ease forwards, float 3s ease-in-out infinite;
+    opacity: 0;
+    transform: scale(0.7);
+}
+
+@keyframes photoPop {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ========================= */
+/* MOBILE RESPONSIVENESS */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        padding: 20px;
+    }
+
+    .character {
+        font-size: 60px;
+    }
+
+    .dialogue {
+        font-size: 16px;
+        padding: 15px 20px;
+    }
+
+    .valentine-question,
+    .final-message {
+        font-size: 22px;
+        padding: 0 10px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .romantic-photo {
+        width: 160px;
+        height: 160px;
+    }
+
+    .music-toggle {
+        bottom: 15px;
+        right: 15px;
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+}
