@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function launchConfetti() {
         for (let i = 0; i < 80; i++) {
             const confetti = document.createElement("div");
-            confetti.innerHTML = "🎊";
+            confetti.innerHTML = "🎊🎉";
             confetti.style.position = "fixed";
             confetti.style.left = Math.random() * 100 + "vw";
             confetti.style.top = "-20px";
